@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     document.getElementById("submit").addEventListener("click", function() {
 
-        let inputEmail = document.getElementById("inputEmail");
-        let inputPassword = document.getElementById("inputPassword");
+        let inputEmail = document.getElementById("email");
+        let inputPassword = document.getElementById("password");
         let camposCompletados = true;
 
         if (inputEmail.value === ""){
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             window.location = "inicio.html";
 
         }else {
-            alert("Debes ingresar los datos para continuar!")
+            alert("Debes ingresar los datos solicitados para continuar, Correo electronico y contraseña")
         }
     })
 
