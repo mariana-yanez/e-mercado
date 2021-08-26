@@ -35,23 +35,36 @@
       padding: 15px;
       margin: auto;
     }
+
+    body {
+      background: url(img/fondo\ login.jpg) fixed;
+      background-size: cover;
+    }
+
+    .modal-content {
+      box-shadow: 10px 10px 70px rgba(53, 52, 52, 0.322)
+    }
+
   </style>
 </head>
 
-<body class="text-center">
-  <div class="container p-5">
-    <div style="position: relative; width:auto; top: 0;"><hr>
+<body >
+  <div class="container p-5 modal-content col-4">
+    <div>
 
-      <h4 class="alert-heading">Por favor, iniciar sesión</h4>
+      <h4 class="text-center">Por favor, iniciar sesión</h4><br>
 
-        <label for="email">Correo electrónico</label><br>
-        <input id="email" type="email" name="email" placeholder="nombre@ejemplo.com"><br><br>
-        
-        <label for="password">Ingresar contraseña</label><br>
-        <input id="password" type="password" name="password"><br>
+      <div class="form-group">
+        <label for="inputemail">Ingresar correo electrónico</label><br>
+        <input id="email" type="email" class="form-control" name="email" placeholder="nombre@ejemplo.com">
+      </div>
 
-        <input class="form-check-input" type="checkbox" name="Recordar">Recordar datos <br><br>
-        <button id="submit" type="submit" class="btn btn-primary">Iniciar sesión</button> 
+      <label for="inputpassword">Ingresar contraseña</label><br>
+      <input id="password" type="password" class="form-control" name="password"><br>
+
+      <input class="form-check-input, text-center" type="checkbox" name="Recordar"> Recordar datos <br><br>
+
+      <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block">Iniciar sesión</button>
 
       <hr>
     </div>
