@@ -23,13 +23,109 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <div id="My_user" class="btn-group" style="display: none;">
+        <a id="info_usuario" type="button" class="btn btn-info" href="my-profile.html"></a>
+        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <div class="dropdown-divider"></div>
+          <a id="salir" class="dropdown-item" href="inicio.html">Salir</a>
+        </div>
+      </div>
+      <button id="login" type="button" class="btn btn-info" style="display: inline-block;"><a href="index.html">Iniciar
+          sesión</a></button>
     </div>
   </nav>
+
   <div class="container p-5">
     <div class="productos" style="position: relative; width:auto; top: 0;">
-      <h2>Productos</h2>
-      <div id="productos"></div>
+      <h2>Productos</h2><br>
+
+
+
+      <div class="row justify-content-end">
+
+        <div class="row container p-0 col-md-12">
+
+          <div>
+            <input class="form-control" type="text" id="buscador" placeholder="Buscar">
+          </div>
+
+
+          <div class="col">
+            <div class="btn-group ">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Ordenar por:
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <button id="mayor-relevancia" class="dropdown-item" type="button">Más relevantes</button>
+                <button id="precio-ascendente" class="dropdown-item" type="button">Menor precio</button>
+                <button id="precio-descendente" class="dropdown-item" type="button">Mayor precio</button>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-3">
+            <p class="font-weight-normal text-right my-2">Precio:</p>
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" id="precio-min" placeholder="Mínimo">
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" id="precio-max" placeholder="Máximo">
+          </div>
+          <div class="col-2 p-0">
+            <div class="btn-group" role="group">
+              <button class="btn btn-light btn-block" id="filtrar">Filtrar</button>
+              <button class="btn btn-link btn-sm" id="borrar">Borrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><br>
+
+    <!--
+      <div id="filtro-rango-precio">
+        <p>Precio:</p>
+        <input type="number" id="precio-min" placeholder="Mínimo">
+        <input type="number" id="precio-max" placeholder="Máximo">
+        <button id="filtrar">Filtrar</button>
+        <button id="borrar">Borrar</button>
+      </div><br>
+ 
+      <div>
+        <p>Ordenar por:</p>
+      <select>
+        <option id="mayor-relevancia">Más relevantes</option>
+        <option id="precio-ascendente">Menor precio</option>
+        <option id="precio-descendente">Mayor precio</option>
+      </select>
     </div>
+      
+
+     <div class="btn-group ">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Ordenar por:
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <button id="mayor-relevancia" class="dropdown-item" type="button">Más relevantes</button>
+          <button id="precio-ascendente" class="dropdown-item" type="button">Menor precio</button>
+          <button id="precio-descendente" class="dropdown-item" type="button">Mayor precio</button>
+        </div>
+      </div>
+      <br><br>
+    
+    -->
+
+    <div id="productos"></div>
+  </div>
   </div>
   <footer class="text-muted bg-light">
     <div class="container">

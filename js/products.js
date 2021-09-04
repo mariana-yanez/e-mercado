@@ -1,30 +1,40 @@
 var productosArray = [];
+var precio_min = undefined;
+var precio_max = undefined;
+var buscar;
 
-function showProductos(array){
+function showProductos(array) {
 
     let htmlContentToAppend = "";
-    for(let i = 0; i < productosArray.length; i++){
+    for (let i = 0; i < productosArray.length; i++) {
         let producto = productosArray[i];
 
-        htmlContentToAppend += `
-            <a href="category-info.html" class="list-group-item list-group-item-action">
+        if (buscar == undefined || producto.name.toLowerCase().indexOf(buscar) != -1) {
+
+            if (((precio_min == undefined) || (precio_min != undefined && parseInt(producto.cost) >= precio_min)) &&
+                ((precio_max == undefined) || (precio_max != undefined && parseInt(producto.cost) <= precio_max))) {
+
+                htmlContentToAppend += `
+            <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
                         <img src="` + producto.imgSrc + `" class="img-thumbnail">
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ producto.name +`</h4>
+                            <h4 class="mb-1">`+ producto.name + `</h4>
                             <small class="text-muted">` + producto.soldCount + ` artículos</small>
                         </div>
                         <p class="mb-1">` + producto.description + `</p>
-                        <p class="mb-1">` + producto.currency +" "+ producto.cost + `</p>
+                        <p class="mb-1">` + producto.currency + " " + producto.cost + `</p>
                     </div>
                 </div>
             </a>
             `
+            }
+        }
+        document.getElementById("productos").innerHTML = htmlContentToAppend
     }
-    document.getElementById("productos").innerHTML = htmlContentToAppend
 }
 
 
@@ -33,15 +43,93 @@ function showProductos(array){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
 
-    getJSONData(PRODUCTS_URL).then(function(result){
-        if (result.status === "ok"){
+    getJSONData(PRODUCTS_URL).then(function (result) {
+        if (result.status === "ok") {
             productosArray = result.data;
 
             showProductos(productosArray);
 
-        }else{ //aca enseñamos al usuruario con una alerta el error en caso que se haya producido alguno
+        } else { //aca enseñamos al usuruario con una alerta el error en caso que se haya producido alguno
             //pensar como mejorar la forma de mostrar este error
             alert(result.data);
         }
     })
+
+    document.getElementById("buscador").addEventListener('input', function () {
+
+        buscar = document.getElementById("buscador").value.toLowerCase();
+
+        showProductos(productosArray);
+    })
+
+    // aca estoy haciendo mi funcion para la entrega 2 de filtrar a raiz de un precio
+    document.getElementById("filtrar").addEventListener('click', function () {
+
+        precio_min = document.getElementById("precio-min").value;
+        precio_max = document.getElementById("precio-max").value;
+
+        if ((precio_min != undefined) && (precio_min != "") && (parseInt(precio_min)) >= 0) {
+            precio_min = parseInt(precio_min);
+        }
+        else {
+            precio_min = undefined;
+        }
+
+        if ((precio_max != undefined) && (precio_max != "") && (parseInt(precio_max)) >= 0) {
+            precio_max = parseInt(precio_max);
+        }
+        else {
+            precio_max = undefined;
+        }
+
+        showProductos(productosArray);
+
+    });
+
+    document.getElementById("borrar").addEventListener('click', function () {
+        document.getElementById("precio-min").value = "";
+        document.getElementById("precio-max").value = "";
+
+        precio_min = undefined;
+        precio_max = undefined;
+
+        showProductos(productosArray);
+    });
+
+    document.getElementById("mayor-relevancia").addEventListener('click', function () {
+
+        productosArray.sort((producto1, producto2) => {
+
+            return (producto1.soldCount > producto2.soldCount) ? - 1 : 1
+
+        })
+        showProductos(productosArray);
+
+    });
+
+    document.getElementById("precio-ascendente").addEventListener('click', function () {
+
+        productosArray.sort((producto1, producto2) => {
+
+            return (producto1.cost < producto2.cost) ? - 1 : 1
+
+        })
+        showProductos(productosArray);
+
+    });
+
+    document.getElementById("precio-descendente").addEventListener('click', function () {
+
+        productosArray.reverse((producto1, producto2) => {
+
+            return (producto1.cost < producto2.cost) ? - 1 : 1
+
+        })
+        showProductos(productosArray);
+
+    });
+
+
 });
+
+
