@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showProductos(productosArray);
     })
 
-    // aca estoy haciendo mi funcion para la entrega 2 de filtrar a raiz de un precio
     document.getElementById("filtrar").addEventListener('click', function () {
 
         precio_min = document.getElementById("precio-min").value;
