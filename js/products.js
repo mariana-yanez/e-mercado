@@ -3,7 +3,7 @@ var precio_min = undefined;
 var precio_max = undefined;
 var buscar;
 
-function showProductos(array) {
+function showProductos() {
 
     let htmlContentToAppend = "";
     for (let i = 0; i < productosArray.length; i++) {
@@ -18,15 +18,15 @@ function showProductos(array) {
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
-                        <img src="` + producto.imgSrc + `" class="img-thumbnail">
+                        <img src="${producto.imgSrc}" class="img-thumbnail">
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ producto.name + `</h4>
-                            <small class="text-muted">` + producto.soldCount + ` artículos</small>
+                            <h4 class="mb-1">${producto.name}</h4>
+                            <small class="text-muted">${producto.soldCount} artículos</small>
                         </div>
-                        <p class="mb-1">` + producto.description + `</p>
-                        <p class="mb-1">` + producto.currency + " " + producto.cost + `</p>
+                        <p class="mb-1">${producto.description}</p>
+                        <p class="mb-1">${producto.currency} ${producto.cost}</p>
                     </div>
                 </div>
             </a>
@@ -99,8 +99,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         productosArray.sort((producto1, producto2) => {
 
-            return (producto1.soldCount > producto2.soldCount) ? - 1 : 1
-
+            return (producto1.soldCount > producto2.soldCount) ? - 1 : (producto1.soldCount == producto2.soldCount) ? 0 : 1
+            
         })
         showProductos(productosArray);
 
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         productosArray.sort((producto1, producto2) => {
 
-            return (producto1.cost < producto2.cost) ? - 1 : 1
+            return (producto1.cost < producto2.cost) ? - 1 : (producto1.cost == producto2.cost) ? 0 : 1 
 
         })
         showProductos(productosArray);
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         productosArray.reverse((producto1, producto2) => {
 
-            return (producto1.cost < producto2.cost) ? - 1 : 1
+            return (producto1.cost < producto2.cost) ? - 1 : (producto1.cost == producto2.cost) ? 0 : 1
 
         })
         showProductos(productosArray);
