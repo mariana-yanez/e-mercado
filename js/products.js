@@ -3,7 +3,13 @@ var precio_min = undefined;
 var precio_max = undefined;
 var buscar;
 
-function showProductos() {
+function infoProducto(id) {
+    localStorage.setItem('informacion', id);
+    window.location = 'product-info.html'
+}
+    
+
+function showProductos(productosArray) {
 
     let htmlContentToAppend = "";
     for (let i = 0; i < productosArray.length; i++) {
@@ -15,7 +21,7 @@ function showProductos() {
                 ((precio_max == undefined) || (precio_max != undefined && parseInt(producto.cost) <= precio_max))) {
 
                 htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
+                <div class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
                         <img src="${producto.imgSrc}" class="img-thumbnail">
@@ -27,16 +33,17 @@ function showProductos() {
                         </div>
                         <p class="mb-1">${producto.description}</p>
                         <p class="mb-1">${producto.currency} ${producto.cost}</p>
+                        <button id="info_product" class="btn btn-primary" onclick="infoProducto(${producto.id})">Información</button>
                     </div>
+                </div>
                 </div>
             </a>
             `
             }
         }
-        document.getElementById("productos").innerHTML = htmlContentToAppend
-    }
+        document.getElementById("productos").innerHTML = htmlContentToAppend; 
+    }    
 }
-
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -100,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         productosArray.sort((producto1, producto2) => {
 
             return (producto1.soldCount > producto2.soldCount) ? - 1 : (producto1.soldCount == producto2.soldCount) ? 0 : 1
-            
+
         })
         showProductos(productosArray);
 
@@ -110,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         productosArray.sort((producto1, producto2) => {
 
-            return (producto1.cost < producto2.cost) ? - 1 : (producto1.cost == producto2.cost) ? 0 : 1 
+            return (producto1.cost < producto2.cost) ? - 1 : (producto1.cost == producto2.cost) ? 0 : 1
 
         })
         showProductos(productosArray);
@@ -127,7 +134,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showProductos(productosArray);
 
     });
-
 
 });
 

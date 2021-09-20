@@ -40,15 +40,27 @@
           sesión</a></button>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega:
-        03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+  <div class="container p-5" id="infoProduct"></div>
+
+  <div class="col-12">
+    <div class="container">
+      <h5 class="card-header">Comentarios</h5>
+      <div class="card-body">
+        <h5 class="card-title">Deja un comentario</h5>
+        <textarea class="form-control" aria-label="With textarea"></textarea><br>
+        <span class="fa fa-star" style="cursor: pointer;" onclick="calificacion(this)" id="1star"></span>
+        <span class="fa fa-star" style="cursor: pointer;" onclick="calificacion(this)" id="2star"></span>
+        <span class="fa fa-star" style="cursor: pointer;" onclick="calificacion(this)" id="3star"></span>
+        <span class="fa fa-star" style="cursor: pointer;" onclick="calificacion(this)" id="4star"></span>
+        <span class="fa fa-star" style="cursor: pointer;" onclick="calificacion(this)" id="5star"></span><br><br>
+        <a href="#" class="btn btn-primary">Enviar</a><hr>
+      </div>
     </div>
   </div>
+
+  <div class="container" id="comentarios"></div>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
