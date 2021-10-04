@@ -1,14 +1,21 @@
-var productosArray = [];
+var productoArray = [];
 var comentariosArray = [];
+var productosArray = [];
+var relacionadosArray = [];
 
-function showProductos(productosArray) {
+function infoProducto(id) {
+  localStorage.setItem('informacion', id);
+  window.location = 'product-info.html'
+}
 
-    let htmlContentToAppend = "";
-    for (let i = 0; i < productosArray.length; i++) {
-        let producto = productosArray[i];
+function showProducto(productoArray) {
+
+  let htmlContentToAppend = "";
+  for (let i = 0; i < productoArray.length; i++) {
+    let producto = productoArray[i];
 
 
-        htmlContentToAppend += `
+    htmlContentToAppend += `
         <div class="container justify-content-center">
         <div class="card">
           <h5 class="card-header">Producto:</h5>
@@ -57,40 +64,42 @@ function showProductos(productosArray) {
             </div>
           </div>
         </div><br><br>
-        
-        <h5 class="card-header">Productos relacionados:</h5><br>
-        <div class="card-deck">
-          <div class="card">
-            <img src="img/prod2.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Fiat Way</h5>
-              <p class="card-text">La versión de Fiat que brinda confort y a un precio accesible.</p>
-              <a href="products.html" class="btn btn-primary">Ver más</a><br><br>
-            </div>
-          </div>
-          <div class="card">
-            <img src="img/prod4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Peugeot 208</h5>
-              <p class="card-text">El modelo de auto que se sigue renovando y manteniendo su prestigio en comodidad.</p>
-              <a href="products.html" class="btn btn-primary">Ver más</a><br><br>
-            </div>
-          </div>
-        </div>
       </div>
-  `
-    }
+        `
+  }
 
-    document.getElementById("infoProduct").innerHTML = htmlContentToAppend;
+  document.getElementById("infoProduct").innerHTML = htmlContentToAppend;
 }
+
+function showRelatedProducts(relacionadosArray, arrayProducto) {
+
+  let relatedProducts = "";
+  relacionadosArray.forEach(function (indice) {
+
+    relatedProducts += `
+      <div class="card col-sm-6" style="width: 18rem;">
+        <img src="img/${arrayProducto[indice].id}/${arrayProducto[indice].id}.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${arrayProducto[indice].name}</h5>
+        <p class="card-text">${arrayProducto[indice].description}</p>
+        <p class="mb-1">${arrayProducto[indice].currency} ${arrayProducto[indice].cost}</p>
+        <a href="javascript:infoProducto(${arrayProducto[indice].id})" class="btn btn-primary">Ver más</a>
+      </div>
+      </div>
+ `
+  })
+
+  document.getElementById("productosRelacionados").innerHTML = relatedProducts;
+}
+
 
 function showComentarios(comentariosArray) {
 
-    let coments = "";
-    for (let i = 0; i < comentariosArray.length; i++) {
-        let comentario = comentariosArray[i];
+  let coments = "";
+  for (let i = 0; i < comentariosArray.length; i++) {
+    let comentario = comentariosArray[i];
 
-        coments += `
+    coments += `
         <div class="col-12">
         <div class="container justify-content-center">
         <ul class="list-unstyled">
@@ -106,9 +115,10 @@ function showComentarios(comentariosArray) {
       </div><hr>
       </div>
   `
-    }
-
     document.getElementById("comentarios").innerHTML = coments;
+  }
+
+
 }
 
 
@@ -116,24 +126,25 @@ function showComentarios(comentariosArray) {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCT_INFO_URL).then(function (result) {
-        if (result.status === "ok") {
-            productosArray = result.data;
+  getJSONData(PRODUCT_INFO_URL).then(function (result) {
+    if (result.status === "ok") {
+      productoArray = result.data;
 
-            // let producto = productosArray === parseInt(localStorage.getItem('informacion'));
-            let producto = productosArray.filter(e => e.id === parseInt(localStorage.getItem('informacion')));
+      let producto = productoArray.filter(e => e.id === parseInt(localStorage.getItem('informacion')));
 
-            showProductos(producto);        
+      showProducto(producto);
+      showRelatedProducts(producto[0].relatedProducts, productoArray);
 
-        }
-    })
+    }
+  })
+  
 
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (result) {
-        if(result.status === "ok"){
-            comentariosArray = result.data  
+  getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (result) {
+    if (result.status === "ok") {
+      comentariosArray = result.data
 
-            showComentarios(comentariosArray);
-        }
-    })
+      showComentarios(comentariosArray);
+    }
+  })
 
 });
