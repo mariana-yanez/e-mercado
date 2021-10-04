@@ -144,6 +144,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
       showRelatedProducts(producto[0].relatedProducts, productosArray);
     }
   })
+  
 
   getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (result) {
     if (result.status === "ok") {
