@@ -2,7 +2,6 @@ var productoArray = [];
 var comentariosArray = [];
 var productosArray = [];
 var relacionadosArray = [];
-var producto = [];
 
 function infoProducto(id) {
   localStorage.setItem('informacion', id);
@@ -131,17 +130,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
     if (result.status === "ok") {
       productoArray = result.data;
 
-      producto = productoArray.filter(e => e.id === parseInt(localStorage.getItem('informacion')));
+      let producto = productoArray.filter(e => e.id === parseInt(localStorage.getItem('informacion')));
 
       showProducto(producto);
-    }
-  })
+      showRelatedProducts(producto[0].relatedProducts, productoArray);
 
-  getJSONData(PRODUCTS_URL).then(function (result) {
-    if (result.status === "ok") {
-      productosArray = result.data
-
-      showRelatedProducts(producto[0].relatedProducts, productosArray);
     }
   })
   

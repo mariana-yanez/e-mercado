@@ -37,7 +37,6 @@ function showProductos(productosArray) {
                     </div>
                 </div>
                 </div>
-            </a>
             `
             }
         }
