@@ -27,6 +27,10 @@
         font-size: 3.5rem;
       }
     }
+
+    .blue {
+      border-radius: 10px;
+    }
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -58,11 +62,145 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div class="row">
+      <div class="col-4 text-center bg-info blue">
+        <img 
+          src='https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraightStrand&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=CollarSweater&clotheColor=Black&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light'
+          class="w-50" alt="...">
+      </div>
+      <div class="col-8">
+        <h4 class="font-weight-bold">Mi Perfil</h4>
+        <hr>
+        <h6 class="font-weight-bold">Datos Personales:</h6>
+
+        <div class="row">
+          <div class="col-4">
+
+            <ul class="list-group">
+              <li class="list-group-item">Nombres y apellidos</li>
+              <li class="list-group-item">Edad</li>
+              <li class="list-group-item">E-mail</li>
+              <li class="list-group-item">Teléfono de contacto</li>
+            </ul>
+          </div>
+
+          <div class="col-8">
+            <div class="list-group">
+              <div>
+                <button type="button" id="names" class="list-group-item list-group-item-action" data-toggle="modal"
+                  data-target="#exampleModal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                  </svg></button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Modificar nombres y apellidos
+                        </h5>
+                      </div>
+                      <div class="modal-body">
+
+                        <form>
+                          <div class="form-group">
+                            <label for="name">Nombres y Apellidos</label>
+                            <input type="text" class="form-control" id="nombres">
+                          </div>
+                        </form>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" id="guardarName" class="btn btn-primary"
+                          data-dismiss="modal">Guardar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <button type="button" id="fecha" class="list-group-item list-group-item-action" data-toggle="modal"
+                  data-target="#exampleModal2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                  </svg></button>
+                <div class="modal fade" id="exampleModal2" tabindex="-2" role="dialog"
+                  aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Modificar edad
+                        </h5>
+                      </div>
+                      <div class="modal-body">
+
+                        <form>
+                          <div class="form-group">
+                            <label for="fecha">Insertar edad</label>
+                            <input type="number" class="form-control" id="nacimiento">
+                          </div>
+                        </form>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" id="guardarFecha" class="btn btn-primary"
+                          data-dismiss="modal">Guardar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+                <p id="correo" class="list-group-item"></p>
+
+              <div>
+                <button type="button" id="contacto" class="list-group-item list-group-item-action" data-toggle="modal"
+                  data-target="#exampleModal4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                  </svg></button>
+                <div class="modal fade" id="exampleModal4" tabindex="-4" role="dialog"
+                  aria-labelledby="exampleModalLabel4" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Modificar Teléfono</h5>
+                      </div>
+                      <div class="modal-body">
+
+                        <form>
+                          <div class="form-group">
+                            <label for="fecha">Insertar teléfono de contacto</label>
+                            <input type="text" class="form-control" id="telefono">
+                          </div>
+                        </form>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" id="guardarContacto" class="btn btn-primary"
+                          data-dismiss="modal">Guardar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
     </div>
   </div>
   <footer class="text-muted bg-light">
