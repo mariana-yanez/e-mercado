@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="site-header sticky-top py-1 bg-dark">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <a class="py-2 d-none d-md-inline-block" href="inicio.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      <div id="My_user" class="btn-group" style="display: none;">
+        <a id="info_usuario" type="button" class="btn btn-info" href="my-profile.html"></a>
+        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <div class="dropdown-divider"></div>
+          <a id="salir" class="dropdown-item" href="index.html">Salir</a>
+        </div>
+      </div>
+      <button id="login" type="button" class="btn btn-info" style="display: inline-block;"><a href="index.html">Iniciar
+          sesión</a></button>
+    </div>
+  </nav>
+  <div class="container p-5">
+    <div class="text-center p-4">
+      <h2>Carrito de compras</h2>
+      <p class="lead">Verás aquí todos los artículos agregados a tu carrito y los detalles de compra.</p>
+    </div>
+    <h5 class="card-header">Artículos:</h5>
+    <div id="cartProductos"></div>
+
+    <div class="list-group-item text-right">
+      <div class="row">
+        <div class="col">
+          <p class="mb-1">Costo de envío: XXXX </p>
+          <div class="text-right">
+            <!-- <h4 id="importeTotalUyu">Importe Total UYU:</h4> -->
+             <h4 id="importeTotal">Importe Total: </h4>
+          </div>
+          <div class="text-right">
+            <!-- <h4 id="importeTotalUsd">Importe Total USD:</h4> -->
+          </div>
+          <button id="info_product" class="btn btn-primary">Continuar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container p-5">
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+              data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Método de envío
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <h5 class="card-header">Dirección:</h5>
+          <div class="list-group-item">
+            <form>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="validationDefault01">Calle:</label>
+                  <input type="text" class="form-control" id="validationDefault01" placeholder="Ejemplo: Av. Italia"
+                    required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="validationDefault02">Número</label>
+                  <input type="text" class="form-control" id="validationDefault02" placeholder="Número de puerta / apto"
+                    required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="validationDefault03">Esquina</label>
+                  <input type="text" class="form-control" id="validationDefault03" required>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="validationDefault04">País</label>
+                  <select class="custom-select" id="validationDefault04" required>
+                    <option>Uruguay</option>
+                  </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="validationDefault04">Departamento:</label>
+                  <select class="custom-select" id="validationDefault04" required>
+                    <option selected disabled value="">Elegir</option>
+                    <option>Canelones</option>
+                    <option>Cerro Largo</option>
+                    <option>Colonia</option>
+                    <option>Durazno</option>
+                    <option>Flores</option>
+                    <option>Florida</option>
+                    <option>Lavalleja</option>
+                    <option>Maldonado</option>
+                    <option>Montevideo</option>
+                    <option>Paysandú</option>
+                    <option>Río Negro</option>
+                    <option>Rivera</option>
+                    <option>Rocha</option>
+                    <option>Salto</option>
+                    <option>San José</option>
+                    <option>Soriano</option>
+                    <option>Tacuarembó</option>
+                    <option>Treinta y Tres</option>
+                  </select>
+                </div>
+              </div>
+              <fieldset class="form-group row">
+                <legend class="col-form-label col-sm-2 float-sm-left pt-0">Tipo de envío:</legend>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                      required>
+                    <label class="form-check-label" for="gridRadios1">
+                      Premium (2-5 días) - Costo del 15% sobre el subtotal.
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"
+                      required>
+                    <label class="form-check-label" for="gridRadios2">
+                      Express (5-8 días) - Costo del 7% sobre el subtotal.
+                    </label>
+                  </div>
+                  <div class="form-check disabled">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3"
+                      required>
+                    <label class="form-check-label" for="gridRadios3">
+                      Standard (12 a 15 días) - Costo del 5% sobre el subtotal.
+                    </label>
+                  </div>
+                  <div class="form-check disabled">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3"
+                      required>
+                    <label class="form-check-label" for="gridRadios3">
+                      Retiro en tienda física.
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+              <p>
+                <button class="btn btn-primary" type="submit" data-toggle="collapse" data-target="#collapseExample"
+                  aria-expanded="false" aria-controls="collapseExample">
+                  Guardar y continuar
+                </button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Forma de pago
+              </button>
+            </h2>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+              <fieldset class="form-group row">
+                <legend class="col-form-label col-sm-2 float-sm-left pt-0">Elegir forma de pago:</legend>
+                <div class="col-sm-10">
+
+                  <div class="form-check">
+                    <input type="checkbox" value="" id="defaultCheck1" data-toggle="collapse"
+                      href="#multiCollapseExample1" role="button" aria-expanded="false"
+                      aria-controls="multiCollapseExample1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Transferencia Bancaria
+                    </label>
+                    <div class="row">
+                      <div class="col-7">
+                        <div class="collapse multi-collapse" id="multiCollapseExample1">
+                          <div class="card card-body">
+                            Banco: Santander <br>
+                            Titular de la cuenta: e-mercado <br>
+                            Tipo de cuenta: Corriente <br>
+                            N.º de cuenta: 000000000 <br>
+                            Sucursal: 2 - 18 de Julio <br>
+                            <form>
+                              <div class="form-group">
+                                <label for="exampleFormControlFile1">Adjuntar comprobante de pago:</label>
+                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" value="" id="defaultCheck2" data-toggle="collapse"
+                      data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+                    <label class="form-check-label" for="defaultCheck2">
+                      Tarjeta de Credito
+                    </label>
+                  </div>
+                  <div class="col-7">
+                    <div class="collapse multi-collapse" id="multiCollapseExample2">
+                      <div class="card card-body">
+                        <form>
+                          <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Ingrese el número de tarjeta">
+                            <div class="row">
+                              <div class="col">
+                                <label for="validationDefault01"><small>Mes de vencimiento</small></label>
+                                <input type="text" class="form-control" placeholder="Mes">
+                              </div>
+                              <div class="col">
+                                <label for="validationDefault01"><small>Año de vencimiento</small></label>
+                                <input type="text" class="form-control" placeholder="Año">
+                              </div>
+                              <div class="col-3">
+                                <label for="validationDefault01"><small>CCV</small></label>
+                                <input type="text" class="form-control">
+                              </div>
+                            </div><br>
+                            <input type="text" class="form-control" placeholder="Nombre en la tarjeta"><br>
+                            <div class="input-group mb-3 col-6">
+                              <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Cuotas</label>
+                              </div>
+                              <select class="custom-select" id="inputGroupSelect01">
+                                <option selected disabled>Elegir</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                              </select>
+                            </div>
+                            <div class="form-group form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">Guarde los detalles para pagos
+                                rápidos.</label>
+                            </div>
+                            <div class="col">
+                              <button type="submit" class="btn btn-danger">Cancelar</button>
+                              <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+            <button type="button" class="btn btn-success m-3" data-toggle="modal" data-target="#staticBackdrop">Pagar
+              ahora</button>
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+              aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Orden de compra</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    ¡Gracias, su compra ha sido realizada con exito!
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <a type="button" class="btn btn-primary" href="inicio.html">Aceptar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
+</html>

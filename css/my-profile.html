@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .blue {
+      border-radius: 10px;
+    }
+  </style>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="site-header sticky-top py-1 bg-dark">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <a class="py-2 d-none d-md-inline-block" href="inicio.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      <div id="My_user" class="btn-group" style="display: none;">
+        <a id="info_usuario" type="button" class="btn btn-info" href="my-profile.html"></a>
+        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <div class="dropdown-divider"></div>
+          <a id="salir" class="dropdown-item" href="inicio.html">Salir</a>
+        </div>
+      </div>
+      <button id="login" type="button" class="btn btn-info" style="display: inline-block;"><a href="index.html">Iniciar
+          sesión</a></button>
+    </div>
+  </nav>
+  <div class="container p-5">
+    <div class="row">
+      <div class="col-4 text-center bg-info blue">
+        <img 
+          src='https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraightStrand&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=CollarSweater&clotheColor=Black&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light'
+          class="w-50" alt="...">
+      </div>
+      <div class="col-8">
+        <h4 class="font-weight-bold">Mi Perfil</h4>
+        <hr>
+        <h6 class="font-weight-bold">Datos Personales:</h6>
+
+        <div class="row">
+          <div class="col-4">
+
+            <ul class="list-group">
+              <li class="list-group-item">Nombres y apellidos</li>
+              <li class="list-group-item">Edad</li>
+              <li class="list-group-item">E-mail</li>
+              <li class="list-group-item">Teléfono de contacto</li>
+            </ul>
+          </div>
+
+          <div class="col-8">
+            <div class="list-group">
+              <div>
+                <button type="button" id="names" class="list-group-item list-group-item-action" data-toggle="modal"
+                  data-target="#exampleModal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                  </svg></button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Modificar nombres y apellidos
+                        </h5>
+                      </div>
+                      <div class="modal-body">
+
+                        <form>
+                          <div class="form-group">
+                            <label for="name">Nombres y Apellidos</label>
+                            <input type="text" class="form-control" id="nombres">
+                          </div>
+                        </form>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" id="guardarName" class="btn btn-primary"
+                          data-dismiss="modal">Guardar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <button type="button" id="fecha" class="list-group-item list-group-item-action" data-toggle="modal"
+                  data-target="#exampleModal2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                  </svg></button>
+                <div class="modal fade" id="exampleModal2" tabindex="-2" role="dialog"
+                  aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Modificar edad
+                        </h5>
+                      </div>
+                      <div class="modal-body">
+
+                        <form>
+                          <div class="form-group">
+                            <label for="fecha">Insertar edad</label>
+                            <input type="number" class="form-control" id="nacimiento">
+                          </div>
+                        </form>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" id="guardarFecha" class="btn btn-primary"
+                          data-dismiss="modal">Guardar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+                <p id="correo" class="list-group-item"></p>
+
+              <div>
+                <button type="button" id="contacto" class="list-group-item list-group-item-action" data-toggle="modal"
+                  data-target="#exampleModal4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                  </svg></button>
+                <div class="modal fade" id="exampleModal4" tabindex="-4" role="dialog"
+                  aria-labelledby="exampleModalLabel4" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Modificar Teléfono</h5>
+                      </div>
+                      <div class="modal-body">
+
+                        <form>
+                          <div class="form-group">
+                            <label for="fecha">Insertar teléfono de contacto</label>
+                            <input type="text" class="form-control" id="telefono">
+                          </div>
+                        </form>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" id="guardarContacto" class="btn btn-primary"
+                          data-dismiss="modal">Guardar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div class="alert fade alert-success" role="alert" id="alertResult">
+    <span id="resultSpan"></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/my-profile.js"></script>
+</body>
+
+</html>
