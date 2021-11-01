@@ -156,7 +156,39 @@
                 </div>
               </div>
 
-                <p id="correo" class="list-group-item"></p>
+              <div>
+                <button type="button" id="correo" class="list-group-item list-group-item-action" data-toggle="modal"
+                  data-target="#exampleModal5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                  </svg></button>
+                <div class="modal fade" id="exampleModal5" tabindex="-5" role="dialog"
+                  aria-labelledby="exampleModalLabel4" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Modificar E-mail</h5>
+                      </div>
+                      <div class="modal-body">
+
+                        <form>
+                          <div class="form-group">
+                            <label for="fecha">Insertar nuevo E-mail</label>
+                            <input type="text" class="form-control" id="email">
+                          </div>
+                        </form>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" id="guardarEmail" class="btn btn-primary"
+                          data-dismiss="modal">Guardar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div>
                 <button type="button" id="contacto" class="list-group-item list-group-item-action" data-toggle="modal"

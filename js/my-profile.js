@@ -52,7 +52,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
         
             }
 
-          
+    document.getElementById("guardarEmail").addEventListener("click", function () {    
+            
+        let email = document.getElementById("email");
+
+        localStorage.setItem("User", JSON.stringify({email: email.value}))
+        window.location = "my-profile.html";
+
+        })
+
         let user = localStorage.getItem("User");
         let info_user = document.getElementById("correo")
 
@@ -60,6 +68,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
           user = JSON.parse(user);
           info_user.innerText = info_user.innerText + user.email;
         }
+
+        if (document.getElementById("salir")) {
+            document.getElementById("salir").addEventListener("click", function(){
+              localStorage.removeItem("User");
+            })
+        
+        }
+
+   
 
     document.getElementById("guardarContacto").addEventListener("click", function () {
        
