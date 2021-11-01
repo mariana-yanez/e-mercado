@@ -7,7 +7,7 @@ function infoProducto(id) {
     localStorage.setItem('informacion', id);
     window.location = 'product-info.html'
 }
-    
+
 
 function showProductos(productosArray) {
 
@@ -21,27 +21,23 @@ function showProductos(productosArray) {
                 ((precio_max == undefined) || (precio_max != undefined && parseInt(producto.cost) <= precio_max))) {
 
                 htmlContentToAppend += `
-                <div class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="${producto.imgSrc}" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${producto.name}</h4>
-                            <small class="text-muted">${producto.soldCount} artículos</small>
-                        </div>
-                        <p class="mb-1">${producto.description}</p>
-                        <p class="mb-1">${producto.currency} ${producto.cost}</p>
-                        <button id="info_product" class="btn btn-primary" onclick="infoProducto(${producto.id})">Información</button>
-                    </div>
+                <div class="col-md-4 col-lg-3">
+                <div class="card mb-4 shadow-sm custom-card">
+                 <img src="${producto.imgSrc}" class="card-img-top">
+                 <div class="card-body d-flex flex-column">
+                 <h5 class="card-title font-weight-bold">${producto.name}</h5>
+                 <small class="text-muted">${producto.soldCount} artículos</small>
+                  <p class="card-text">${producto.description}</p>
+                  <p class="mb-1 font-weight-bold">${producto.currency} ${producto.cost}</p>
+                  <button id="info_product" class="btn btn-primary mt-auto" onclick="infoProducto(${producto.id})">Información</button>
+                 </div>
                 </div>
                 </div>
             `
             }
         }
-        document.getElementById("productos").innerHTML = htmlContentToAppend; 
-    }    
+        document.getElementById("productos").innerHTML = htmlContentToAppend;
+    }
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
