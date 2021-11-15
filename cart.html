@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<!--saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
 
 <head>
@@ -57,6 +57,7 @@
           sesión</a></button>
     </div>
   </nav>
+  <!-- cabecera del Carrito de compras-->
   <div class="container p-5">
     <div class="text-center p-4">
       <h2>Carrito de compras</h2>
@@ -64,24 +65,8 @@
     </div>
     <h5 class="card-header">Artículos:</h5>
     <div id="cartProductos"></div>
-
-    <div class="list-group-item text-right">
-      <div class="row">
-        <div class="col">
-          <p class="mb-1">Costo de envío: XXXX </p>
-          <div class="text-right">
-            <!-- <h4 id="importeTotalUyu">Importe Total UYU:</h4> -->
-             <h4 id="importeTotal">Importe Total: </h4>
-          </div>
-          <div class="text-right">
-            <!-- <h4 id="importeTotalUsd">Importe Total USD:</h4> -->
-          </div>
-          <button id="info_product" class="btn btn-primary">Continuar</button>
-        </div>
-      </div>
-    </div>
   </div>
-
+  <!-- container de todo lo que contiene mi pagina luego del listado de art-->
   <div class="container p-5">
     <div class="accordion" id="accordionExample">
       <div class="card">
@@ -97,32 +82,45 @@
           <h5 class="card-header">Dirección:</h5>
           <div class="list-group-item">
             <form>
+              <!-- dirección y metodo de envio-->
               <div class="form-row">
                 <div class="col-md-6 mb-3">
-                  <label for="validationDefault01">Calle:</label>
-                  <input type="text" class="form-control" id="validationDefault01" placeholder="Ejemplo: Av. Italia"
-                    required>
+                  <label for="calle">Calle:</label>
+                  <input type="text" class="form-control formuOut" id="calle" placeholder="Ejemplo: Av. Italia" required
+                    value="">
+                  <div class="invalid-feedback">
+                    Por favor ingresa calle.
+                  </div>
                 </div>
                 <div class="col-md-6 mb-3">
-                  <label for="validationDefault02">Número</label>
-                  <input type="text" class="form-control" id="validationDefault02" placeholder="Número de puerta / apto"
-                    required>
+                  <label for="numero">Número</label>
+                  <input type="text" class="form-control formuOut" id="numero" placeholder="Número de puerta / apto"
+                    required value="">
+                  <div class="invalid-feedback">
+                    Por favor ingresa numero de puerta.
+                  </div>
                 </div>
               </div>
               <div class="form-row">
                 <div class="col-md-6 mb-3">
-                  <label for="validationDefault03">Esquina</label>
-                  <input type="text" class="form-control" id="validationDefault03" required>
+                  <label for="esquina">Esquina</label>
+                  <input type="text" class="form-control formuOut" id="esquina" required value="">
+                  <div class="invalid-feedback">
+                    Por favor ingresa numero de puerta.
+                  </div>
                 </div>
                 <div class="col-md-3 mb-3">
-                  <label for="validationDefault04">País</label>
-                  <select class="custom-select" id="validationDefault04" required>
+                  <label for="pais">País</label>
+                  <select class="custom-select formuOut" id="pais" required value="">
                     <option>Uruguay</option>
                   </select>
+                  <div class="invalid-feedback">
+                    Por favor seleccionar el pais.
+                  </div>
                 </div>
                 <div class="col-md-3 mb-3">
-                  <label for="validationDefault04">Departamento:</label>
-                  <select class="custom-select" id="validationDefault04" required>
+                  <label for="departamento">Departamento:</label>
+                  <select class="custom-select formuOut" id="departamento" required value="">
                     <option selected disabled value="">Elegir</option>
                     <option>Canelones</option>
                     <option>Cerro Largo</option>
@@ -143,173 +141,145 @@
                     <option>Tacuarembó</option>
                     <option>Treinta y Tres</option>
                   </select>
+                  <div class="invalid-feedback">
+                    Por favor ingresa un departamento.
+                  </div>
                 </div>
               </div>
-              <fieldset class="form-group row">
+              <fieldset class="form-group row formuOut">
                 <legend class="col-form-label col-sm-2 float-sm-left pt-0">Tipo de envío:</legend>
-                <div class="col-sm-10">
+                <div class="col-sm-10" id="radio">
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
-                      required>
-                    <label class="form-check-label" for="gridRadios1">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="premium" required="">
+                    <label class="form-check-label" for="premium">
                       Premium (2-5 días) - Costo del 15% sobre el subtotal.
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"
-                      required>
-                    <label class="form-check-label" for="gridRadios2">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="express" required="">
+                    <label class="form-check-label" for="express">
                       Express (5-8 días) - Costo del 7% sobre el subtotal.
                     </label>
                   </div>
-                  <div class="form-check disabled">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3"
-                      required>
-                    <label class="form-check-label" for="gridRadios3">
-                      Standard (12 a 15 días) - Costo del 5% sobre el subtotal.
-                    </label>
-                  </div>
-                  <div class="form-check disabled">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3"
-                      required>
-                    <label class="form-check-label" for="gridRadios3">
-                      Retiro en tienda física.
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="standard" required="">
+                    <label class="form-check-label" for="standard">
+                      Standard (12 a 15 días) - Costo del 5% sobre el subtotal
                     </label>
                   </div>
                 </div>
               </fieldset>
-              <p>
-                <button class="btn btn-primary" type="submit" data-toggle="collapse" data-target="#collapseExample"
-                  aria-expanded="false" aria-controls="collapseExample">
-                  Guardar y continuar
-                </button>
+              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                Guardar y continuar
+              </button>
           </div>
         </div>
         <div class="card">
           <div class="card-header" id="headingThree">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="modal"
+                data-target="#exampleModal">
                 Forma de pago
               </button>
             </h2>
           </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-            <div class="card-body">
-              <fieldset class="form-group row">
-                <legend class="col-form-label col-sm-2 float-sm-left pt-0">Elegir forma de pago:</legend>
-                <div class="col-sm-10">
-
-                  <div class="form-check">
-                    <input type="checkbox" value="" id="defaultCheck1" data-toggle="collapse"
-                      href="#multiCollapseExample1" role="button" aria-expanded="false"
-                      aria-controls="multiCollapseExample1">
-                    <label class="form-check-label" for="defaultCheck1">
-                      Transferencia Bancaria
-                    </label>
-                    <div class="row">
-                      <div class="col-7">
-                        <div class="collapse multi-collapse" id="multiCollapseExample1">
-                          <div class="card card-body">
-                            Banco: Santander <br>
-                            Titular de la cuenta: e-mercado <br>
-                            Tipo de cuenta: Corriente <br>
-                            N.º de cuenta: 000000000 <br>
-                            Sucursal: 2 - 18 de Julio <br>
-                            <form>
-                              <div class="form-group">
-                                <label for="exampleFormControlFile1">Adjuntar comprobante de pago:</label>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-check">
-                    <input type="checkbox" value="" id="defaultCheck2" data-toggle="collapse"
-                      data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
-                    <label class="form-check-label" for="defaultCheck2">
-                      Tarjeta de Credito
-                    </label>
-                  </div>
-                  <div class="col-7">
-                    <div class="collapse multi-collapse" id="multiCollapseExample2">
-                      <div class="card card-body">
-                        <form>
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Ingrese el número de tarjeta">
-                            <div class="row">
-                              <div class="col">
-                                <label for="validationDefault01"><small>Mes de vencimiento</small></label>
-                                <input type="text" class="form-control" placeholder="Mes">
-                              </div>
-                              <div class="col">
-                                <label for="validationDefault01"><small>Año de vencimiento</small></label>
-                                <input type="text" class="form-control" placeholder="Año">
-                              </div>
-                              <div class="col-3">
-                                <label for="validationDefault01"><small>CCV</small></label>
-                                <input type="text" class="form-control">
-                              </div>
-                            </div><br>
-                            <input type="text" class="form-control" placeholder="Nombre en la tarjeta"><br>
-                            <div class="input-group mb-3 col-6">
-                              <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Cuotas</label>
-                              </div>
-                              <select class="custom-select" id="inputGroupSelect01">
-                                <option selected disabled>Elegir</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                              </select>
-                            </div>
-                            <div class="form-group form-check">
-                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                              <label class="form-check-label" for="exampleCheck1">Guarde los detalles para pagos
-                                rápidos.</label>
-                            </div>
-                            <div class="col">
-                              <button type="submit" class="btn btn-danger">Cancelar</button>
-                              <button type="submit" class="btn btn-primary">Guardar</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-            </div>
-            <button type="button" class="btn btn-success m-3" data-toggle="modal" data-target="#staticBackdrop">Pagar
-              ahora</button>
-            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-              aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <form>
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Orden de compra</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Elegir forma de Pago</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    ¡Gracias, su compra ha sido realizada con exito!
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="transferencia"
+                        value="option1" checked>
+                      <label class="form-check-label" for="exampleRadios1">
+                        Transferencia Bancaria
+                      </label>
+                      <hr>
+                      <label for="datos">Número de Transferencia</label>
+                      <input class="form-control col-7" type="text">
+                    </div><br>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="credito" value="option1"
+                        checked>
+                      <label class="form-check-label" for="exampleRadios1">
+                        Tarjeta de Credito
+                      </label>
+                      <hr>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Ingrese el número de tarjeta">
+                        <div class="row">
+                          <div class="col">
+                            <label for="validationDefault01"><small>Mes de vencimiento</small></label>
+                            <input type="text" class="form-control" placeholder="Mes">
+                          </div>
+                          <div class="col">
+                            <label for="validationDefault01"><small>Año de vencimiento</small></label>
+                            <input type="text" class="form-control" placeholder="Año">
+                          </div>
+                          <div class="col-3">
+                            <label for="validationDefault01"><small>CCV</small></label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div><br>
+                        <input type="text" class="form-control" placeholder="Nombre en la tarjeta"><br>
+                        <div class="input-group mb-3 col-6">
+                          <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Cuotas</label>
+                          </div>
+                          <select class="custom-select" id="inputGroupSelect01">
+                            <option selected disabled>Elegir</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                          </select>
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Guarde los detalles para pagos
+                            rápidos.</label>
+                        </div>
+                        <div class="col">
+                          <button type="submit" class="btn btn-danger">Cancelar</button>
+                          <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <a type="button" class="btn btn-primary" href="inicio.html">Aceptar</a>
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
-          </fieldset>
         </div>
       </div>
+      </fieldset>
     </div>
+    <form id="myForm">
+      <div class="list-group-item text-right">
+        <div class="row">
+          <div class="col">
+            <p id="costoEnvio" class="mb-1">Costo de envío: 00,00 </p>
+            <div class="text-right">
+              <h4 id="importeTotal">Importe Total: </h4>
+            </div>
+            <!-- Button trigger modal -->
+            <button id="finalizarCompra" type="submit" class="btn btn-success m-3" data-toggle="modal"
+              data-target="#exampleModal2">
+              Finalizar compra
+            </button>
+            <div class="row m-3 p-1 g-3" id="feedback" style="color: red;">
+            </div>
+    </form>
   </div>
 
   <div id="spinner-wrapper">
