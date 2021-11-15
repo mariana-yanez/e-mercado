@@ -144,31 +144,6 @@ let msg = "";
 
         }
 
-
-// let flag = true;
-// let msg = "";
-//
-// let elementosFuera = document.getElementsByClassName("formuOut");
-// // let afuera = document.getElementsByClassName("formuIn");
-// document.getElementById("feedback").innerHTML = "";
-//
-// //Solo 1 vacío fuera:
-// let cuentoFuera = 0;
-// for (let i = 0; i < elementosFuera.length; i++) {
-//   const element = elementosFuera[i];
-//   if (element.value == "") {
-//     cuentoFuera += 1;
-//   }
-// }
-//
-// if (cuentoFuera > 1) {
-//   flag = false;
-//   msg += "-Por favor complete todos los datos. <br>"
-// }
-//
-// document.getElementById("feedback").innerHTML = msg;
-// return flag;
-//
 }
 
 
